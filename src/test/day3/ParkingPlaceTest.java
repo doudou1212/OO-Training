@@ -3,9 +3,9 @@ package test.day3;
 import main.day3.Car;
 import main.day3.ParkingLot;
 import main.day3.Ticket;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 public class ParkingPlaceTest {
     @Test

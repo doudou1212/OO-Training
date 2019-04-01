@@ -12,3 +12,9 @@ open/close
 Liskov substitution principle
 Interface segregation principle
 Dependency inversion principle
+
+
+test case 一定要反应 task上的domain
+命名要表达task
+不必要的元素不要加
+业务需求

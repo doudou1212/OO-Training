@@ -14,7 +14,7 @@ public class SmartParkingBoyTest {
         ParkingLot[] parkinglots = new ParkingLot[]{parkingLot1, parkingLot2};
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkinglots);
         Car car = new Car();
-        Ticket ticket = smartParkingBoy.parking(car);
+        Ticket ticket = smartParkingBoy.park(car);
         assertSame(car, parkingLot2.pick(ticket));
     }
 
@@ -25,7 +25,7 @@ public class SmartParkingBoyTest {
         ParkingLot[] parkinglots = new ParkingLot[]{parkingLot1, parkingLot2};
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkinglots);
         Car car = new Car();
-        Ticket ticket = smartParkingBoy.parking(car);
+        Ticket ticket = smartParkingBoy.park(car);
         assertSame(car, parkingLot1.pick(ticket));
     }
 
@@ -36,7 +36,7 @@ public class SmartParkingBoyTest {
         ParkingLot[] parkinglots = new ParkingLot[]{parkingLot1, parkingLot2};
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkinglots);
         Car car = new Car();
-        Ticket ticket = smartParkingBoy.parking(car);
+        Ticket ticket = smartParkingBoy.park(car);
         assertSame(car, parkingLot1.pick(ticket));
     }
 
@@ -47,7 +47,7 @@ public class SmartParkingBoyTest {
         ParkingLot[] parkinglots = new ParkingLot[]{parkingLot1, parkingLot2};
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkinglots);
         Car car = new Car();
-        Ticket ticket = smartParkingBoy.parking(car);
+        Ticket ticket = smartParkingBoy.park(car);
         assertSame(car, smartParkingBoy.pick(ticket));
     }
 
@@ -68,7 +68,7 @@ public class SmartParkingBoyTest {
         ParkingLot[] parkinglots = new ParkingLot[]{parkingLot1, parkingLot2};
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkinglots);
         Car car = new Car();
-        Ticket ticket = smartParkingBoy.parking(car);
+        Ticket ticket = smartParkingBoy.park(car);
         assertSame(car, smartParkingBoy.pick(ticket));
         smartParkingBoy.pick(ticket);
     }

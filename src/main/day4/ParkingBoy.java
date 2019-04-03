@@ -1,28 +1,19 @@
 package main.day4;
 
 
-public class ParkingBoy {
-    private final ParkingLot[] parkingLots;
+public class ParkingBoy extends Parker{
 
-    public ParkingBoy(final ParkingLot[] parkingLots) {
-        this.parkingLots = parkingLots;
+    public ParkingBoy(ParkingLot[] parkingLots) {
+        super(parkingLots);
     }
 
-    public Ticket park(Car car) throws NoFreeParkingSpaceException, AllParkingLotIsNotAvaliableExpception {
-        for (ParkingLot parkingLot : parkingLots) {
+    @Override
+    public Ticket park(Car car) throws NoFreeParkingSpaceException,AllParkingLotIsNotAvaliableExpception {
+        for (ParkingLot parkingLot : getParkingLots()) {
             if (parkingLot.isAvailable()) {
                 return parkingLot.park(car);
             }
         }
         throw new AllParkingLotIsNotAvaliableExpception();
-    }
-
-    public Car pick(Ticket ticket) throws InvalidTicketException {
-        for (ParkingLot parkingLot : parkingLots) {
-            if (parkingLot.isVaildTicket(ticket)) {
-                return parkingLot.pick(ticket);
-            }
-        }
-        throw new InvalidTicketException();
     }
 }

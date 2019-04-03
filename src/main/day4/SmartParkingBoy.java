@@ -1,22 +1,15 @@
 package main.day4;
 
-public class SmartParkingBoy {
-    private final ParkingLot[] parkingLots;
+public class SmartParkingBoy extends Parker{
 
-    public SmartParkingBoy(final ParkingLot[] parkingLots) {
-        this.parkingLots = parkingLots;
-    }
-    public Ticket parking(Car car) throws NoFreeParkingSpaceException {
-        ParkingLot availableParkingLot = getMostSpareParkingLotIndex();
-        if (availableParkingLot.getAvailableSpaces() > 0 ) {
-            return availableParkingLot.park(car);
-        }
-        throw new NoFreeParkingSpaceException();
+    public SmartParkingBoy(ParkingLot[] parkingLots) {
+        super(parkingLots);
     }
 
     private ParkingLot getMostSpareParkingLotIndex() {
         int index = -1;
         int availableSpaces = -1;
+        ParkingLot[] parkingLots = getParkingLots();
         for (int i = 0; i < parkingLots.length; i++) {
             if(parkingLots[i].getAvailableSpaces() > availableSpaces) {
                 availableSpaces = parkingLots[i].getAvailableSpaces();
@@ -26,12 +19,12 @@ public class SmartParkingBoy {
         return parkingLots[index];
     }
 
-    public Car pick(Ticket ticket) throws InvalidTicketException {
-        for (ParkingLot parkinglot : parkingLots) {
-            if (parkinglot.isVaildTicket(ticket)) {
-                return parkinglot.pick(ticket);
-            }
+    @Override
+    public Ticket park(Car car) throws NoFreeParkingSpaceException {
+        ParkingLot availableParkingLot = getMostSpareParkingLotIndex();
+        if (availableParkingLot.getAvailableSpaces() > 0 ) {
+            return availableParkingLot.park(car);
         }
-        throw new InvalidTicketException();
+        throw new NoFreeParkingSpaceException();
     }
 }

@@ -33,4 +33,14 @@ public class ParkingLotTest {
         assertNotNull(ticket);
         assertNull(parkingLot.parking(secondCar));
     }
+
+    @Test
+    public void should_get_two_different_tickets_when_parking_two_cars_given_an_parking_lot_with_two_places() {
+        ParkingLot parkingLot = new ParkingLot(2);
+        Car firstCar = new Car();
+        Car secondCar = new Car();
+        Ticket ticke1 = parkingLot.parking(firstCar);
+        Ticket ticket2 = parkingLot.parking(secondCar);
+        assertNotEquals(ticke1, ticket2);
+    }
 }

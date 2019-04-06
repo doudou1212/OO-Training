@@ -1,6 +1,6 @@
 package main.homework;
 
-import main.day4.Ticket;
+import main.homework.Ticket;
 
 import java.util.List;
 

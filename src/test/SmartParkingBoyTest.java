@@ -76,4 +76,18 @@ public class SmartParkingBoyTest {
 
     }
 
+    @Test
+    public void should_not_pick_up_ca_when_pick_with_invalid_ticket_given_my_car_in_parking_lots() {
+        ParkingLot parkingLot1 = new ParkingLot(1);
+        ParkingLot parkingLot2 = new ParkingLot(1);
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+        Car car = new Car();
+        smartParkingBoy.parking(car);
+        assertNull(smartParkingBoy.pick(new Ticket()));
+
+    }
+
 }

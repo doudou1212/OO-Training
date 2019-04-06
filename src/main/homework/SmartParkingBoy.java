@@ -17,4 +17,13 @@ public class SmartParkingBoy {
                 .ifPresent(value -> ticket[0] = value.parking(car));
         return ticket[0];
     }
+
+    public Car pick(Ticket ticket) {
+        for (ParkingLot parkingLot : parkingLots) {
+            if (parkingLot.isValidTicket(ticket)) {
+                return parkingLot.pick(ticket);
+            }
+        }
+        return null;
+    }
 }

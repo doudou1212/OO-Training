@@ -11,9 +11,10 @@ public class ParkingBoy {
     }
 
     public Ticket parking(Car car) {
-        return parkingLots.stream()
+        final Ticket[] ticket = new Ticket[1];
+        parkingLots.stream()
                 .filter(parkingLot -> parkingLot.isAvailable())
-                .findFirst()
-                .orElseGet(null).parking(car);
+                .findFirst().ifPresent(value -> ticket[0] = value.parking(car));
+        return ticket[0];
     }
 }

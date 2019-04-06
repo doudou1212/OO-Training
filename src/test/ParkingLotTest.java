@@ -108,4 +108,17 @@ public class ParkingLotTest {
         parkingLot.parking(car);
         assertFalse(parkingLot.isValidTicket(new Ticket()));
     }
+
+    @Test
+    public void should_return_one_when_paring_lot_has_one_available_space() {
+        ParkingLot parkingLot = new ParkingLot(1);
+        assertEquals(1, parkingLot.getAvailbaleSpaces());
+    }
+
+    @Test
+    public void should_return_zero_when_paring_lot_is_full() {
+        ParkingLot parkingLot = new ParkingLot(1);
+        parkingLot.parking(new Car());
+        assertEquals(0, parkingLot.getAvailbaleSpaces());
+    }
 }

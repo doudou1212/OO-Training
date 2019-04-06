@@ -10,6 +10,11 @@ public class SmartParkingBoy {
     }
 
     public Ticket parking(Car car) {
-        return parkingLots.get(1).parking(car);
+        final Ticket[] ticket = new Ticket[1];
+        parkingLots.stream()
+                .max((key, value) -> value.getAvailbaleSpaces())
+                .filter(value -> value.getAvailbaleSpaces() > 0)
+                .ifPresent(value -> ticket[0] = value.parking(car));
+        return ticket[0];
     }
 }

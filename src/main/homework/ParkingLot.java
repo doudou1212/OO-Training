@@ -33,4 +33,8 @@ public class ParkingLot {
     public boolean isValidTicket(Ticket ticket) {
         return parkingLots.get(ticket) != null;
     }
+
+    public int getAvailbaleSpaces() {
+        return capacity > parkingLots.size() ? capacity - parkingLots.size() : 0;
+    }
 }

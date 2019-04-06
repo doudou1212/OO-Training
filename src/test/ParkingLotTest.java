@@ -92,4 +92,20 @@ public class ParkingLotTest {
         assertFalse(parkingLot.isAvailable());
 
     }
+
+    @Test
+    public void should_return_true_if_ticket_is_valid() {
+        ParkingLot parkingLot = new ParkingLot(1);
+        Car car = new Car();
+        Ticket ticket = parkingLot.parking(car);
+        assertTrue(parkingLot.isValidTicket(ticket));
+    }
+
+    @Test
+    public void should_return_false_if_ticket_is_not_valid() {
+        ParkingLot parkingLot = new ParkingLot(1);
+        Car car = new Car();
+        parkingLot.parking(car);
+        assertFalse(parkingLot.isValidTicket(new Ticket()));
+    }
 }

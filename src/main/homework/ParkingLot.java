@@ -29,4 +29,8 @@ public class ParkingLot {
     public boolean isAvailable() {
         return capacity > parkingLots.size();
     }
+
+    public boolean isValidTicket(Ticket ticket) {
+        return parkingLots.get(ticket) != null;
+    }
 }

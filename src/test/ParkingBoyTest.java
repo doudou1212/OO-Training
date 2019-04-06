@@ -71,4 +71,15 @@ public class ParkingBoyTest {
         Ticket ticket = parkingBoy.parking(car);
         assertSame(car, parkingBoy.pick(ticket));
     }
+
+    @Test
+    public void should_not_get_car_when_pick_up_given_the_car_not_in_parking_lots() {
+        ParkingLot parkingLot1 = new ParkingLot(1);
+        ParkingLot parkingLot2 = new ParkingLot(1);
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        assertNull(parkingBoy.pick(new Ticket()));
+    }
 }

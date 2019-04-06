@@ -38,4 +38,17 @@ public class SmartParkingBoyTest {
         assertSame(car, parkingLot1.pick(ticket));
     }
 
+    @Test
+    public void should_park_at_fist_parking_lot_when_parking_give_smart_parking_boy_has_two_lots_with_1st_lot_has_one_spaces_2en_lot_has_one_spaces() {
+        ParkingLot parkingLot1 = new ParkingLot(1);
+        ParkingLot parkingLot2 = new ParkingLot(1);
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+        Car car = new Car();
+        Ticket ticket = smartParkingBoy.parking(car);
+        assertSame(car, parkingLot1.pick(ticket));
+    }
+
 }

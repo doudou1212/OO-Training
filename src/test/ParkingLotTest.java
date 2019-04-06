@@ -43,4 +43,12 @@ public class ParkingLotTest {
         Ticket ticket2 = parkingLot.parking(secondCar);
         assertNotEquals(ticke1, ticket2);
     }
+
+    @Test
+    public void should_get_car_when_picking_with_ticket_given_car_in_parking_lot() {
+        ParkingLot parkingLot = new ParkingLot(1);
+        Car myCar = new Car();
+        Ticket ticket = parkingLot.parking(myCar);
+        assertSame(myCar, parkingLot.pick(ticket));
+    }
 }

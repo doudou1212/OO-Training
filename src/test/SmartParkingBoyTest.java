@@ -9,6 +9,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static junit.framework.TestCase.assertNull;
 import static org.junit.Assert.assertSame;
 
 public class SmartParkingBoyTest {
@@ -49,6 +50,16 @@ public class SmartParkingBoyTest {
         Car car = new Car();
         Ticket ticket = smartParkingBoy.parking(car);
         assertSame(car, parkingLot1.pick(ticket));
+    }
+
+    @Test
+    public void should_park_failed_when_parking_give_smart_parking_boy_has_one_full_lot() {
+        ParkingLot parkingLot1 = new ParkingLot(0);
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot1);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+        Car car = new Car();
+        assertNull(smartParkingBoy.parking(car));
     }
 
 }

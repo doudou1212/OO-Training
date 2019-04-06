@@ -2,6 +2,7 @@ package test;
 
 import main.day4.Ticket;
 import main.homework.Car;
+import main.homework.ParkingBoy;
 import main.homework.ParkingLot;
 import org.junit.Test;
 

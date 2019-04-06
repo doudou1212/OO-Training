@@ -60,4 +60,12 @@ public class ParkingLotTest {
         assertSame(myCar, parkingLot.pick(ticket));
         assertNull(parkingLot.pick(ticket));
     }
+
+    @Test
+    public void shoud_not_get_when_picking_with_invalid_ticket_given_car_in_parking_lot() {
+        ParkingLot parkingLot = new ParkingLot(1);
+        Car myCar = new Car();
+        Ticket ticket = parkingLot.parking(myCar);
+        assertNull(parkingLot.pick(new Ticket()));
+    }
 }

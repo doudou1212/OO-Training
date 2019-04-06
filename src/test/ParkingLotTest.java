@@ -68,4 +68,10 @@ public class ParkingLotTest {
         Ticket ticket = parkingLot.parking(myCar);
         assertNull(parkingLot.pick(new Ticket()));
     }
+
+    @Test
+    public void should_not_get_car_when_picking_with_ticket_given_car_not_in_parking_lot() {
+        ParkingLot parkingLot = new ParkingLot(1);
+        assertNull(parkingLot.pick(new Ticket()));
+    }
 }

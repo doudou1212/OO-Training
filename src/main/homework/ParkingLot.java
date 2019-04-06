@@ -19,4 +19,8 @@ public class ParkingLot {
         }
         return null;
     }
+
+    public Car pick(Ticket ticket) {
+        return parkingLots.get(ticket);
+    }
 }

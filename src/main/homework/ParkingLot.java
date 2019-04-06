@@ -25,4 +25,8 @@ public class ParkingLot {
         parkingLots.remove(ticket);
         return car;
     }
+
+    public boolean isAvailable() {
+        return capacity > parkingLots.size();
+    }
 }

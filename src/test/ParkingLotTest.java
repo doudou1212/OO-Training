@@ -74,4 +74,22 @@ public class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot(1);
         assertNull(parkingLot.pick(new Ticket()));
     }
+
+    @Test
+    public void paring_lot_should_be_avaliable_when_parking_capacity_larger_than_cars_count() {
+        ParkingLot parkingLot = new ParkingLot(2);
+        Car car = new Car();
+        parkingLot.parking(car);
+        assertTrue(parkingLot.isAvailable());
+
+    }
+
+    @Test
+    public void paring_lot_should_not_be_avaliable_when_parking_capacity_equals_to_cars_count() {
+        ParkingLot parkingLot = new ParkingLot(1);
+        Car car = new Car();
+        parkingLot.parking(car);
+        assertFalse(parkingLot.isAvailable());
+
+    }
 }

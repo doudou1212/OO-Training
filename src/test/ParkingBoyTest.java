@@ -82,4 +82,18 @@ public class ParkingBoyTest {
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         assertNull(parkingBoy.pick(new Ticket()));
     }
+
+    @Test
+    public void should_get_car_at_first_time_not_get_car_second_time_when_pick_up_twice_given_the_car_in_parking_lots() {
+        ParkingLot parkingLot1 = new ParkingLot(1);
+        ParkingLot parkingLot2 = new ParkingLot(1);
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        Car car = new Car();
+        Ticket ticket = parkingBoy.parking(car);
+        assertSame(car, parkingBoy.pick(ticket));
+        assertNull(parkingBoy.pick(ticket));
+    }
 }

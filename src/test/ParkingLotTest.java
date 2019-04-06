@@ -51,4 +51,13 @@ public class ParkingLotTest {
         Ticket ticket = parkingLot.parking(myCar);
         assertSame(myCar, parkingLot.pick(ticket));
     }
+
+    @Test
+    public void shoud_get_car_at_first_time_failed_at_second_time_when_picking_with_ticket_given_car_in_parking_lot() {
+        ParkingLot parkingLot = new ParkingLot(1);
+        Car myCar = new Car();
+        Ticket ticket = parkingLot.parking(myCar);
+        assertSame(myCar, parkingLot.pick(ticket));
+        assertNull(parkingLot.pick(ticket));
+    }
 }

@@ -19,6 +19,9 @@ public class ManagerParking implements ManageParkable {
                 .filter(boy -> boy.isParkingLotsAvailable())
                 .findFirst()
                 .ifPresent(boy -> ticket[0] = boy.parking(car));
+        if (ticket[0] == null) {
+            return this.parking(car, parkingLots);
+        }
         return ticket[0];
     }
 }

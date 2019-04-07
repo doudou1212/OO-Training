@@ -1,11 +1,15 @@
 package test;
 
+import main.homework.Car;
 import main.homework.ParkingLot;
+import main.homework.ParkingManager;
 import main.homework.Ticket;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.Assert.assertSame;
 
 public class ParkingManagerTest {
     @Test

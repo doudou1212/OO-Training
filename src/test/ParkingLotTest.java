@@ -121,4 +121,18 @@ public class ParkingLotTest {
         parkingLot.parking(new Car());
         assertEquals(0, parkingLot.getAvailbaleSpaces());
     }
+
+    @Test
+    public void should_return_parking_rate_05_when_parking_capacity_is_2_parking_space_is_one() {
+        ParkingLot parkingLot = new ParkingLot(2);
+        parkingLot.parking(new Car());
+        assertEquals(0.5, parkingLot.getParkingRate(), 0.0);
+    }
+
+    @Test
+    public void should_return_parking_rate_0_when_parking_lot_is_full() {
+        ParkingLot parkingLot = new ParkingLot(1);
+        parkingLot.parking(new Car());
+        assertEquals(0.0, parkingLot.getParkingRate(), 0.0);
+    }
 }

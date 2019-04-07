@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 
 public class SuperParkingBoyTest {
@@ -92,5 +93,18 @@ public class SuperParkingBoyTest {
         Car car = new Car();
         Ticket ticket = superParkingBoy.parking(car);
         assertSame(car, superParkingBoy.pick(ticket));
+    }
+
+    @Test
+    public void should_pick_car_failed_with_invalid_ticket_when_picking_given_parking_boy_has_two_lots_and_the_car_in_lots() {
+        ParkingLot parkingLot1 = new ParkingLot(1);
+        ParkingLot parkingLot2 = new ParkingLot(1);
+        List<ParkingLot> parkingLots = new ArrayList<ParkingLot>();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        SuperParkingBoy superParkingBoy = new SuperParkingBoy(parkingLots);
+        Car car = new Car();
+        Ticket ticket = superParkingBoy.parking(car);
+        assertNull(superParkingBoy.pick(new Ticket()));
     }
 }

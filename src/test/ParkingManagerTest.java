@@ -191,4 +191,28 @@ public class ParkingManagerTest {
         assertSame(car, manager.pick(ticket));
     }
 
+    @Test
+    public void should_pick_car_when_pick_car_with_ticket_given_manger_has_one_boy_and_the_car_park_in_managers_lot() {
+        ParkingLot boyParkingLot = new ParkingLot(1);
+        List<ParkingLot> boyParkingLots = new ArrayList<>();
+        boyParkingLots.add(boyParkingLot);
+        SuperParking superParking = new SuperParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy superParkingBoy = new ParkingBoy(superParking, defaultPick, boyParkingLots);
+
+        List<ParkingBoy> boys = new ArrayList<>();
+        boys.add(superParkingBoy);
+
+        ManagerParking managerParking = new ManagerParking();
+        ManagePick managePick = new ManagePick();
+        ParkingLot managerParkingLot = new ParkingLot(1);
+        List<ParkingLot> managerParkingLots = new ArrayList<>();
+        managerParkingLots.add(managerParkingLot);
+        ParkingManager manager = new ParkingManager(managerParking, managePick, boys, managerParkingLots);
+
+        Car car = new Car();
+        Ticket ticket = managerParkingLot.parking(car);
+        assertSame(car, manager.pick(ticket));
+    }
+
 }

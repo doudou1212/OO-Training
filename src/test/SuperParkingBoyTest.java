@@ -107,4 +107,16 @@ public class SuperParkingBoyTest {
         Ticket ticket = superParkingBoy.parking(car);
         assertNull(superParkingBoy.pick(new Ticket()));
     }
+
+    @Test
+    public void should_pick_car_failed_with_ticket_when_picking_given_parking_boy_has_two_lots_and_the_car_not_in_lots() {
+        ParkingLot parkingLot1 = new ParkingLot(1);
+        ParkingLot parkingLot2 = new ParkingLot(1);
+        List<ParkingLot> parkingLots = new ArrayList<ParkingLot>();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        SuperParkingBoy superParkingBoy = new SuperParkingBoy(parkingLots);
+        superParkingBoy.parking(new Car());
+        assertNull(superParkingBoy.pick(new Ticket()));
+    }
 }

@@ -22,4 +22,13 @@ public class ParkingBoy{
     public Car pick(Ticket ticket) {
         return this.pickable.pick(ticket, parkingLots);
     }
+
+    public boolean isParkingLotsAvailable() {
+        final boolean[] hasAvailableParkingLot = {false};
+        parkingLots.stream()
+                .filter(parkingLot -> parkingLot.getAvailbaleSpaces() > 0)
+                .findFirst()
+                .ifPresent(value -> hasAvailableParkingLot[0] = true);
+        return hasAvailableParkingLot[0];
+    }
 }

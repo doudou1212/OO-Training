@@ -108,4 +108,34 @@ public class ParkingBoyTest {
         assertSame(car, parkingBoy.pick(ticket));
         assertNull(parkingBoy.pick(ticket));
     }
+
+    @Test
+    public void should_return_true_when_has_one_available_parking_lot() {
+        ParkingLot parkingLot1 = new ParkingLot(1);
+        ParkingLot parkingLot2 = new ParkingLot(0);
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+
+        DefaultParking defaultParking = new DefaultParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy parkingBoy = new ParkingBoy(defaultParking, defaultPick, parkingLots);
+
+        assertTrue(parkingBoy.isParkingLotsAvailable());
+    }
+
+    @Test
+    public void should_return_false_when_has_no_available_parking_lot() {
+        ParkingLot parkingLot1 = new ParkingLot(0);
+        ParkingLot parkingLot2 = new ParkingLot(0);
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+
+        DefaultParking defaultParking = new DefaultParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy parkingBoy = new ParkingBoy(defaultParking, defaultPick, parkingLots);
+
+        assertFalse(parkingBoy.isParkingLotsAvailable());
+    }
 }

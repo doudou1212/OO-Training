@@ -1,9 +1,8 @@
 package main.homework;
 
-import java.util.Comparator;
 import java.util.List;
 
-public class ManagerParking implements Managable {
+public class ManagerParking implements ManageParkable {
     @Override
     public Ticket parking(Car car, List<ParkingLot> parkingLots) {
         final Ticket[] ticket = new Ticket[1];
@@ -14,7 +13,12 @@ public class ManagerParking implements Managable {
     }
 
     @Override
-    public Ticket parking(Car car, List<ParkingBoy> parkingLots, List<ParkingBoy> boys) {
-        return null;
+    public Ticket parking(Car car, List<ParkingBoy> boys, List<ParkingLot> parkingLots) {
+        final Ticket[] ticket = new Ticket[1];
+        boys.stream()
+                .filter(boy -> boy.isParkingLotsAvailable())
+                .findFirst()
+                .ifPresent(boy -> ticket[0] = boy.parking(car));
+        return ticket[0];
     }
 }

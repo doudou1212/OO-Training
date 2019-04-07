@@ -45,4 +45,22 @@ public class SuperParkingBoyTest {
         Ticket ticket = superParkingBoy.parking(car);
         assertSame(car, parkingLot1.pick(ticket));
     }
+
+    @Test
+    public void should_park_at_second_parking_lot_when_parking_given_two_lots_with_rate_50_and_1st_lot_has_one_space_2nd_lot_has_two_spaces() {
+        ParkingLot parkingLot1 = new ParkingLot(2);
+        parkingLot1.parking(new Car());
+
+        ParkingLot parkingLot2 = new ParkingLot(4);
+        parkingLot2.parking(new Car());
+        parkingLot2.parking(new Car());
+
+        List<ParkingLot> parkingLots = new ArrayList<ParkingLot>();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        SuperParkingBoy superParkingBoy = new SuperParkingBoy(parkingLots);
+        Car car = new Car();
+        Ticket ticket = superParkingBoy.parking(car);
+        assertSame(car, parkingLot2.pick(ticket));
+    }
 }

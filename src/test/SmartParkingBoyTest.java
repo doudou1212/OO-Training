@@ -1,9 +1,6 @@
 package test;
 
-import main.homework.Car;
-import main.homework.ParkingLot;
-import main.homework.SmartParkingBoy;
-import main.homework.Ticket;
+import main.homework.*;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -20,7 +17,11 @@ public class SmartParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+
+        SmartParking smartParking = new SmartParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy smartParkingBoy = new ParkingBoy(smartParking, defaultPick, parkingLots);
+
         Car car = new Car();
         Ticket ticket = smartParkingBoy.parking(car);
         assertSame(car, parkingLot2.pick(ticket));
@@ -33,7 +34,11 @@ public class SmartParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+
+        SmartParking smartParking = new SmartParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy smartParkingBoy = new ParkingBoy(smartParking, defaultPick, parkingLots);
+
         Car car = new Car();
         Ticket ticket = smartParkingBoy.parking(car);
         assertSame(car, parkingLot1.pick(ticket));
@@ -46,7 +51,11 @@ public class SmartParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+
+        SmartParking smartParking = new SmartParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy smartParkingBoy = new ParkingBoy(smartParking, defaultPick, parkingLots);
+
         Car car = new Car();
         Ticket ticket = smartParkingBoy.parking(car);
         assertSame(car, parkingLot1.pick(ticket));
@@ -57,7 +66,11 @@ public class SmartParkingBoyTest {
         ParkingLot parkingLot1 = new ParkingLot(0);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+
+        SmartParking smartParking = new SmartParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy smartParkingBoy = new ParkingBoy(smartParking, defaultPick, parkingLots);
+
         Car car = new Car();
         assertNull(smartParkingBoy.parking(car));
     }
@@ -69,7 +82,11 @@ public class SmartParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+
+        SmartParking smartParking = new SmartParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy smartParkingBoy = new ParkingBoy(smartParking, defaultPick, parkingLots);
+
         Car car = new Car();
         Ticket ticket = smartParkingBoy.parking(car);
         assertSame(car, smartParkingBoy.pick(ticket));
@@ -83,7 +100,11 @@ public class SmartParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+
+        SmartParking smartParking = new SmartParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy smartParkingBoy = new ParkingBoy(smartParking, defaultPick, parkingLots);
+
         Car car = new Car();
         smartParkingBoy.parking(car);
         assertNull(smartParkingBoy.pick(new Ticket()));
@@ -97,7 +118,11 @@ public class SmartParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+
+        SmartParking smartParking = new SmartParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy smartParkingBoy = new ParkingBoy(smartParking, defaultPick, parkingLots);
+
         Car car = new Car();
         Ticket ticket = smartParkingBoy.parking(car);
         assertSame(car, smartParkingBoy.pick(ticket));
@@ -112,7 +137,11 @@ public class SmartParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+
+        SmartParking smartParking = new SmartParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy smartParkingBoy = new ParkingBoy(smartParking, defaultPick, parkingLots);
+
         assertNull(smartParkingBoy.pick(new Ticket()));
 
     }

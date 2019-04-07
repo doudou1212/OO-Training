@@ -1,9 +1,6 @@
 package test;
 
-import main.homework.Ticket;
-import main.homework.Car;
-import main.homework.ParkingBoy;
-import main.homework.ParkingLot;
+import main.homework.*;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -17,7 +14,9 @@ public class ParkingBoyTest {
         ParkingLot parkingLot = new ParkingLot(1);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        DefaultParking defaultParking = new DefaultParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy parkingBoy = new ParkingBoy(defaultParking, defaultPick, parkingLots);
         Ticket ticket = parkingBoy.parking(new Car());
         assertNotNull(ticket);
     }
@@ -29,7 +28,9 @@ public class ParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        DefaultParking defaultParking = new DefaultParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy parkingBoy = new ParkingBoy(defaultParking, defaultPick, parkingLots);
         Car car = new Car();
         Ticket ticket = parkingBoy.parking(car);
         assertSame(car, parkingLot1.pick(ticket));
@@ -42,7 +43,10 @@ public class ParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        DefaultParking defaultParking = new DefaultParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy parkingBoy = new ParkingBoy(defaultParking, defaultPick, parkingLots);
+//        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
         Car car = new Car();
         Ticket ticket = parkingBoy.parking(car);
         assertSame(car, parkingLot1.pick(ticket));
@@ -54,7 +58,9 @@ public class ParkingBoyTest {
         parkingLot1.parking(new Car());
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        DefaultParking defaultParking = new DefaultParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy parkingBoy = new ParkingBoy(defaultParking, defaultPick, parkingLots);
         Car car = new Car();
         assertNull(parkingBoy.parking(car));
     }
@@ -66,7 +72,9 @@ public class ParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        DefaultParking defaultParking = new DefaultParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy parkingBoy = new ParkingBoy(defaultParking, defaultPick, parkingLots);
         Car car = new Car();
         Ticket ticket = parkingBoy.parking(car);
         assertSame(car, parkingBoy.pick(ticket));
@@ -79,7 +87,9 @@ public class ParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        DefaultParking defaultParking = new DefaultParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy parkingBoy = new ParkingBoy(defaultParking, defaultPick, parkingLots);
         assertNull(parkingBoy.pick(new Ticket()));
     }
 
@@ -90,7 +100,9 @@ public class ParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
+        DefaultParking defaultParking = new DefaultParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy parkingBoy = new ParkingBoy(defaultParking, defaultPick, parkingLots);
         Car car = new Car();
         Ticket ticket = parkingBoy.parking(car);
         assertSame(car, parkingBoy.pick(ticket));

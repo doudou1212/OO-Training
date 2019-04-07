@@ -23,7 +23,11 @@ public class SuperParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<ParkingLot>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        SuperParkingBoy superParkingBoy = new SuperParkingBoy(parkingLots);
+
+        SuperParking superParking = new SuperParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy superParkingBoy = new ParkingBoy(superParking, defaultPick, parkingLots);
+
         Car car = new Car();
         Ticket ticket = superParkingBoy.parking(car);
         assertSame(car, parkingLot2.pick(ticket));
@@ -41,7 +45,11 @@ public class SuperParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<ParkingLot>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        SuperParkingBoy superParkingBoy = new SuperParkingBoy(parkingLots);
+
+        SuperParking superParking = new SuperParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy superParkingBoy = new ParkingBoy(superParking, defaultPick, parkingLots);
+
         Car car = new Car();
         Ticket ticket = superParkingBoy.parking(car);
         assertSame(car, parkingLot1.pick(ticket));
@@ -59,7 +67,11 @@ public class SuperParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<ParkingLot>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        SuperParkingBoy superParkingBoy = new SuperParkingBoy(parkingLots);
+
+        SuperParking superParking = new SuperParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy superParkingBoy = new ParkingBoy(superParking, defaultPick, parkingLots);
+
         Car car = new Car();
         Ticket ticket = superParkingBoy.parking(car);
         assertSame(car, parkingLot2.pick(ticket));
@@ -76,7 +88,11 @@ public class SuperParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<ParkingLot>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        SuperParkingBoy superParkingBoy = new SuperParkingBoy(parkingLots);
+
+        SuperParking superParking = new SuperParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy superParkingBoy = new ParkingBoy(superParking, defaultPick, parkingLots);
+
         Car car = new Car();
         Ticket ticket = superParkingBoy.parking(car);
         assertSame(car, parkingLot1.pick(ticket));
@@ -89,7 +105,11 @@ public class SuperParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<ParkingLot>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        SuperParkingBoy superParkingBoy = new SuperParkingBoy(parkingLots);
+
+        SuperParking superParking = new SuperParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy superParkingBoy = new ParkingBoy(superParking, defaultPick, parkingLots);
+
         Car car = new Car();
         Ticket ticket = superParkingBoy.parking(car);
         assertSame(car, superParkingBoy.pick(ticket));
@@ -102,7 +122,11 @@ public class SuperParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<ParkingLot>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        SuperParkingBoy superParkingBoy = new SuperParkingBoy(parkingLots);
+
+        SuperParking superParking = new SuperParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy superParkingBoy = new ParkingBoy(superParking, defaultPick, parkingLots);
+
         Car car = new Car();
         Ticket ticket = superParkingBoy.parking(car);
         assertNull(superParkingBoy.pick(new Ticket()));
@@ -115,7 +139,11 @@ public class SuperParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<ParkingLot>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        SuperParkingBoy superParkingBoy = new SuperParkingBoy(parkingLots);
+
+        SuperParking superParking = new SuperParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy superParkingBoy = new ParkingBoy(superParking, defaultPick, parkingLots);
+
         superParkingBoy.parking(new Car());
         assertNull(superParkingBoy.pick(new Ticket()));
     }
@@ -127,7 +155,11 @@ public class SuperParkingBoyTest {
         List<ParkingLot> parkingLots = new ArrayList<ParkingLot>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
-        SuperParkingBoy superParkingBoy = new SuperParkingBoy(parkingLots);
+
+        SuperParking superParking = new SuperParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy superParkingBoy = new ParkingBoy(superParking, defaultPick, parkingLots);
+
         Car car = new Car();
         Ticket ticket = superParkingBoy.parking(car);
         assertSame(car, superParkingBoy.pick(ticket));

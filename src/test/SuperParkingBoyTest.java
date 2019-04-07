@@ -1,13 +1,12 @@
 package test;
 
-import main.homework.Car;
-import main.homework.ParkingBoy;
-import main.homework.ParkingLot;
-import main.homework.Ticket;
+import main.homework.*;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.Assert.assertSame;
 
 public class SuperParkingBoyTest {
     @Test

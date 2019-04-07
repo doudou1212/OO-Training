@@ -111,4 +111,30 @@ public class ParkingManagerTest {
         Ticket ticket = manager.parking(car);
         assertSame(car, manager.pick(ticket));
     }
+
+    @Test
+    public void should_parking_two_cars_when_parking_given_parking_manager_has_one_boy_witn_one_space_and_manager_has_one_space() {
+        ParkingLot boyParkingLot = new ParkingLot(1);
+        List<ParkingLot> boyParkingLots = new ArrayList<>();
+        boyParkingLots.add(boyParkingLot);
+        SmartParking smartParking = new SmartParking();
+        DefaultPick defaultPick = new DefaultPick();
+        ParkingBoy smartParkingBoy = new ParkingBoy(smartParking, defaultPick, boyParkingLots);
+
+        List<ParkingBoy> boys = new ArrayList<>();
+        boys.add(smartParkingBoy);
+
+        ManagerParking managerParking = new ManagerParking();
+        ManagePick managePick = new ManagePick();
+        ParkingLot managerParkingLot = new ParkingLot(1);
+        List<ParkingLot> managerParkingLots = new ArrayList<>();
+        managerParkingLots.add(managerParkingLot);
+        ParkingManager manager = new ParkingManager(managerParking, managePick, boys, managerParkingLots);
+        Car car1 = new Car();
+        Car car2 = new Car();
+        Ticket ticket1 = manager.parking(car1);
+        Ticket ticket2 = manager.parking(car2);
+        assertSame(car1, manager.pick(ticket1));
+        assertSame(car2, manager.pick(ticket2));
+    }
 }

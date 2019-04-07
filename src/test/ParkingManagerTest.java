@@ -1,9 +1,6 @@
 package test;
 
-import main.homework.Car;
-import main.homework.ParkingLot;
-import main.homework.ParkingManager;
-import main.homework.Ticket;
+import main.homework.*;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -21,5 +18,27 @@ public class ParkingManagerTest {
         Car car = new Car();
         Ticket ticket = parkingManager.parking(car);
         assertSame(car, parkingLot.pick(ticket));
+    }
+
+    @Test
+    public void should_get_parking_ticket_when_parking_given_parking_manager_has_two_boys_and_each_boy_has_one_available_parking_lot() {
+        ParkingLot boy1ParkingLot = new ParkingLot(1);
+        List<ParkingLot> boy1ParkingLots = new ArrayList<>();
+        boy1ParkingLots.add(boy1ParkingLot);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(boy1ParkingLots);
+
+        ParkingLot boy2ParkingLot = new ParkingLot(1);
+        List<ParkingLot> boy2ParkingLots = new ArrayList<>();
+        boy2ParkingLots.add(boy2ParkingLot);
+        SuperParkingBoy superParkingBoy = new SuperParkingBoy(boy2ParkingLots);
+
+        List<ParkingMan> boys = new ArrayList<>();
+        ParkingManager parkingManager = new ParkingManager(boys);
+        Car car = new Car();
+        Ticket ticket = parkingManager.parking(car);
+        assertSame(car, parkingManager.pick(ticket));
+
+
+
     }
 }

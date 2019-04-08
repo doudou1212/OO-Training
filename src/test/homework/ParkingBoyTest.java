@@ -1,4 +1,4 @@
-package test;
+package test.homework;
 
 import main.homework.*;
 import org.junit.Test;
